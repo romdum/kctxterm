@@ -6,5 +6,7 @@ Append current kubectl context to your terminal path.
 
 Run this command: 
 ```
+cd ~
+wget https://raw.githubusercontent.com/romdum/kctxterm/main/.kctxterm
 echo ". ~/.kctxterm" >> ~/.bashrc
 ```
