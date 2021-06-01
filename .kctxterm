@@ -13,8 +13,8 @@ fi
 PS1=$(echo $PS1 | sed 's/.$//' | sed 's/.$//')
 
 if [ "$color_prompt" = yes ]; then
-        PS1="$PS1\e[0;31m[$(kubectl config view -o jsonpath={.current-context})]\e[m\$ "
+        PS1+='\e[0;31m[$(kubectl config view -o jsonpath={.current-context})]\e[m\$ '
 else
-        PS1="$PS1[$(kubectl config view -o jsonpath={.current-context})]\$ "
+        PS1+='[$(kubectl config view -o jsonpath={.current-context})]\$ '
 fi
 
