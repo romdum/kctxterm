@@ -11,10 +11,13 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 PS1=$(echo $PS1 | sed 's/.$//' | sed 's/.$//')
+KCTX=$(kubectl config view -o jsonpath={.current-context})
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
 
 if [ "$color_prompt" = yes ]; then
-        PS1+='\e[0;31m[$(kubectl config view -o jsonpath={.current-context})]\e[m\$ '
+        PS1+='\[$RED\][$KCTX]\[$RESET\]\$ '
 else
-        PS1+='[$(kubectl config view -o jsonpath={.current-context})]\$ '
+        PS1+='[$KCTX]\$ '
 fi
 
