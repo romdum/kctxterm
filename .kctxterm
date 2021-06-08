@@ -16,8 +16,8 @@ RED=$(tput setaf 1)
 RESET=$(tput sgr0)
 
 if [ "$color_prompt" = yes ]; then
-        PS1+='\[$RED\][$KCTX]\[$RESET\]\$ '
+        PS1+='\[$RED\][$(kubectl config view -o jsonpath={.current-context})]\[$RESET\]\$ '
 else
-        PS1+='[$KCTX]\$ '
+        PS1+='[$(kubectl config view -o jsonpath={.current-context})]\$ '
 fi
 
